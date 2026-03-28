@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { ExternalLink, Github, Globe, ArrowRight } from 'lucide-react'
@@ -105,10 +105,25 @@ const platformIcons = {
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null)
   const [filter, setFilter] = useState('all')
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true })
 
   const categories = ['all', ...new Set(projects.map((p) => p.category))]
   const filteredProjects = filter === 'all' ? projects : projects.filter((p) => p.category === filter)
+  const filterTabsRef = useRef(null)
+
+  const handleFilterClick = (category, event) => {
+    setFilter(category)
+    // Scroll the clicked tab to center on mobile
+    if (filterTabsRef.current && event.currentTarget) {
+      const container = filterTabsRef.current
+      const button = event.currentTarget
+      const containerWidth = container.offsetWidth
+      const buttonLeft = button.offsetLeft
+      const buttonWidth = button.offsetWidth
+      const scrollPosition = buttonLeft - (containerWidth / 2) + (buttonWidth / 2)
+      container.scrollTo({ left: scrollPosition, behavior: 'smooth' })
+    }
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -151,22 +166,28 @@ const Projects = () => {
           </motion.div>
 
           {/* Filter Tabs */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium capitalize transition-all duration-300 ${
-                  filter === category
-                    ? 'bg-primary-400/20 text-primary-400 border border-primary-400/30'
-                    : 'glass hover:bg-white/5 text-dark-400 hover:text-white'
-                }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {category}
-              </motion.button>
-            ))}
+          <motion.div 
+            variants={itemVariants} 
+            className="overflow-x-auto pb-2 mb-8 sm:mb-12 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide"
+            ref={filterTabsRef}
+          >
+            <div className="flex sm:flex-wrap sm:justify-center gap-2 sm:gap-3 min-w-max sm:min-w-0">
+              {categories.map((category) => (
+                <motion.button
+                  key={category}
+                  onClick={(e) => handleFilterClick(category, e)}
+                  className={`px-4 py-3 rounded-xl text-xs sm:text-sm font-medium capitalize transition-all duration-300 whitespace-nowrap min-h-[44px] ${
+                    filter === category
+                      ? 'bg-primary-400/20 text-primary-400 border border-primary-400/30'
+                      : 'glass hover:bg-white/5 text-dark-400 hover:text-white'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {category === 'all' ? 'All' : category}
+                </motion.button>
+              ))}
+            </div>
           </motion.div>
 
           {/* Projects Grid */}

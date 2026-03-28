@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const CursorGlow = ({ position }) => {
+const PointerGlow = ({ position }) => {
   return (
     <>
       {/* Main Glow Effect */}
@@ -21,4 +21,4 @@ const CursorGlow = ({ position }) => {
   )
 }
 
-export default CursorGlow
+export default PointerGlow

@@ -49,7 +49,7 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true })
 
   const handleSubmit = async (e) => {
     e.preventDefault()

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Code, Globe, Server, Wrench, Database, Brain } from 'lucide-react'
@@ -108,7 +108,22 @@ const skillCategories = [
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('languages')
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true })
+  const tabsContainerRef = useRef(null)
+
+  const handleTabClick = (categoryId, event) => {
+    setActiveCategory(categoryId)
+    // Scroll the clicked tab to center on mobile
+    if (tabsContainerRef.current && event.currentTarget) {
+      const container = tabsContainerRef.current
+      const button = event.currentTarget
+      const containerWidth = container.offsetWidth
+      const buttonLeft = button.offsetLeft
+      const buttonWidth = button.offsetWidth
+      const scrollPosition = buttonLeft - (containerWidth / 2) + (buttonWidth / 2)
+      container.scrollTo({ left: scrollPosition, behavior: 'smooth' })
+    }
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -155,7 +170,8 @@ const Skills = () => {
           {/* Category Tabs */}
           <motion.div
             variants={itemVariants}
-            className="overflow-x-auto pb-2 mb-8 sm:mb-12 -mx-6 px-6 sm:mx-0 sm:px-0"
+            className="overflow-x-auto pb-2 mb-8 sm:mb-12 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide"
+            ref={tabsContainerRef}
           >
             <div className="flex sm:flex-wrap sm:justify-center gap-2 sm:gap-3 min-w-max sm:min-w-0">
               {skillCategories.map((category) => {
@@ -164,8 +180,8 @@ const Skills = () => {
                 return (
                   <motion.button
                     key={category.id}
-                    onClick={() => setActiveCategory(category.id)}
-                    className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                    onClick={(e) => handleTabClick(category.id, e)}
+                    className={`flex items-center gap-1.5 sm:gap-2 px-4 py-3 sm:px-4 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap min-h-[44px] ${
                       !isActive ? 'glass hover:bg-white/5 text-dark-400 hover:text-white' : ''
                     }`}
                     style={isActive ? {

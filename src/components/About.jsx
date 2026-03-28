@@ -41,7 +41,7 @@ const funFacts = [
 ]
 
 const About = () => {
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true })
+  const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true })
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -113,7 +113,7 @@ const experiences = [
 ]
 
 const Experience = () => {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true })
 
   const containerVariants = {
     hidden: { opacity: 0 },

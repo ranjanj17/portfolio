@@ -12,7 +12,7 @@ import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
-import CursorGlow from './components/CursorGlow'
+import PointerGlow from './components/PointerGlow'
 import ParticleBackground from './components/ParticleBackground'
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
           >
             <div className="mesh-bg" />
             <ParticleBackground />
-            <CursorGlow position={cursorPosition} />
+            <PointerGlow position={cursorPosition} />
             <div className="noise-overlay" />
             <Navbar />
             <main>

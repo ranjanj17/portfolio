@@ -97,7 +97,7 @@ const Hero = () => {
     <section
       id="home"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-[calc(100vh-80px)] md:min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20"
     >
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">
@@ -189,7 +189,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex justify-center mb-6"
+                className="flex justify-center mb-6 mt-6 sm:mt-0"
               >
                 <motion.div 
                   className="relative group cursor-pointer"
@@ -288,8 +288,8 @@ const Hero = () => {
               </motion.div>
 
               {/* Main Title */}
-              <div ref={titleRef} className="overflow-hidden mb-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight">
+              <div ref={titleRef} className="overflow-hidden mb-1 sm:mb-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-none sm:leading-tight">
                   <span className="block text-white">{splitText("I'm")}</span>
                   <span className="block gradient-text-animated">
                     {splitText('Ranjan Kumar')}
@@ -302,7 +302,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2 }}
-                className="h-10 mb-6 flex items-center justify-center"
+                className="h-7 sm:h-10 mb-3 sm:mb-6 flex items-center justify-center"
               >
                 <TypewriterEffect roles={roles} />
               </motion.div>
@@ -388,14 +388,14 @@ const Hero = () => {
 
                 {/* Floating Badge - Decorated */}
                 <motion.div
-                  className="absolute -bottom-2 -right-2 md:bottom-4 md:right-0"
-                  animate={{ y: [-5, 5, -5] }}
+                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:-bottom-2 sm:-right-2 md:bottom-4 md:right-0"
+                  animate={{ y: [-3, 3, -3] }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                 >
                   <div className="relative group">
                     {/* Animated glow behind */}
                     <motion.div
-                      className="absolute -inset-1 rounded-2xl opacity-70 blur-sm"
+                      className="absolute -inset-0.5 sm:-inset-1 rounded-xl sm:rounded-2xl opacity-70 blur-sm"
                       style={{
                         background: 'linear-gradient(135deg, #f97316, #fbbf24, #a855f7)',
                       }}
@@ -404,27 +404,27 @@ const Hero = () => {
                     />
                     
                     {/* Badge content */}
-                    <div className="relative flex items-center gap-2 px-4 py-2.5 bg-dark-900/95 backdrop-blur-xl rounded-2xl border border-white/10">
+                    <div className="relative flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-4 sm:py-2.5 bg-dark-900/95 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/10">
                       {/* Flipkart yellow icon */}
-                      <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-yellow-400 to-primary-400 flex items-center justify-center">
-                        <span className="text-xs font-bold text-dark-900">F</span>
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 aspect-square rounded sm:rounded-lg bg-gradient-to-br from-yellow-400 to-primary-400 flex items-center justify-center">
+                        <span className="text-[9px] sm:text-xs font-bold text-dark-900">F</span>
                       </div>
                       
                       {/* Text */}
-                      <div className="flex flex-col">
-                        <span className="text-xs text-dark-400 leading-tight">Working as</span>
-                        <span className="text-sm font-semibold bg-gradient-to-r from-white to-dark-300 bg-clip-text text-transparent leading-tight">
+                      <div className="flex flex-col whitespace-nowrap">
+                        <span className="text-[8px] sm:text-xs text-dark-400 leading-tight">Working as</span>
+                        <span className="text-[10px] sm:text-sm font-semibold bg-gradient-to-r from-white to-dark-300 bg-clip-text text-transparent leading-tight">
                           SDE @ Flipkart
                         </span>
                       </div>
                       
                       {/* Verified badge */}
                       <motion.div
-                        className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
+                        className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 aspect-square rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
-                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </motion.div>
@@ -440,7 +440,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.2, duration: 0.6 }}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12"
+            className="mt-8 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-12"
           >
             {[
               { value: '180M+', label: 'Monthly Users' },
@@ -470,7 +470,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 md:bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.a
           href="#about"
@@ -484,7 +484,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark-950 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 md:h-32 bg-gradient-to-t from-dark-950 to-transparent" />
     </section>
   )
 }

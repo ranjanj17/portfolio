@@ -6,6 +6,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --primary: #f7931e;
   --primary-light: #ffa94d;
@@ -252,8 +261,14 @@ body {
 
 /* Section Styles */
 .section {
-  padding: 60px 0;
+  padding: 40px 0;
   position: relative;
+}
+
+@media (min-width: 480px) {
+  .section {
+    padding: 50px 0;
+  }
 }
 
 @media (min-width: 640px) {
