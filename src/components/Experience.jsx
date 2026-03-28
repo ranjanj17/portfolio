@@ -207,7 +207,7 @@ const Experience = () => {
                           <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center text-xl sm:text-2xl flex-shrink-0 overflow-hidden ${exp.isImage ? 'bg-white p-2' : 'bg-white/10 p-1.5'}`}>
                             {exp.isImage ? (
                               <img 
-                                src={exp.logo} 
+                                src={exp.logo.startsWith('/') ? `${import.meta.env.BASE_URL}${exp.logo.slice(1)}` : exp.logo} 
                                 alt={`${exp.company} logo`}
                                 className="w-full h-full object-contain"
                                 onError={(e) => {
@@ -305,7 +305,7 @@ const Experience = () => {
           >
             <p className="text-dark-400 mb-4">Want to know more about my experience?</p>
             <motion.a
-              href="/RanjanKumar_Resume.pdf"
+              href={`${import.meta.env.BASE_URL}RanjanKumar_Resume.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary inline-flex items-center gap-2"

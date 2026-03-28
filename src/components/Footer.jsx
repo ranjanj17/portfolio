@@ -85,7 +85,7 @@ const Footer = () => {
                   {column.links.map((link) => (
                     <li key={link.name}>
                       <a
-                        href={link.href}
+                        href={link.href.startsWith('/') ? `${import.meta.env.BASE_URL}${link.href.slice(1)}` : link.href}
                         target={link.href.startsWith('http') || link.external ? '_blank' : undefined}
                         rel={link.href.startsWith('http') || link.external ? 'noopener noreferrer' : undefined}
                         className="text-dark-400 hover:text-primary-400 transition-colors text-xs sm:text-sm"

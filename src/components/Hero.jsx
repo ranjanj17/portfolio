@@ -379,7 +379,7 @@ const Hero = () => {
                 {/* Profile Image Container */}
                 <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full overflow-hidden border-4 border-dark-800 bg-dark-900">
                   <img
-                    src="/hero-profile.png"
+                    src={`${import.meta.env.BASE_URL}hero-profile.png`}
                     alt="Ranjan Kumar"
                     className="w-full h-full object-cover scale-[1.2]"
                     style={{ objectPosition: '50% 75%' }}

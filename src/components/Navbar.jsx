@@ -129,7 +129,7 @@ const Navbar = () => {
 
               {/* Resume Button */}
               <motion.a
-                href="/RanjanKumar_Resume.pdf"
+                href={`${import.meta.env.BASE_URL}RanjanKumar_Resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 download
@@ -239,7 +239,7 @@ const Navbar = () => {
 
                   {/* Resume Button */}
                   <motion.a
-                    href="/RanjanKumar_Resume.pdf"
+                    href={`${import.meta.env.BASE_URL}RanjanKumar_Resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                     download
