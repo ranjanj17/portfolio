@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -39,7 +39,12 @@ function App() {
         {loading ? (
           <Loader key="loader" />
         ) : (
-          <>
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+          >
             <div className="mesh-bg" />
             <ParticleBackground />
             <CursorGlow position={cursorPosition} />
@@ -57,7 +62,7 @@ function App() {
               <Contact />
             </main>
             <Footer />
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

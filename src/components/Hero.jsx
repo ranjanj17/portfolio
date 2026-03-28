@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ArrowDown, Sparkles, Code2, Smartphone, Globe } from 'lucide-react'
+import { ArrowDown, Sparkles, Code2, Smartphone, Globe, ShoppingCart, Truck, Bike } from 'lucide-react'
 import gsap from 'gsap'
 
 const roles = [
@@ -113,10 +113,11 @@ const Hero = () => {
         />
       </div>
 
-      {/* Floating Platform Icons */}
+      {/* Floating Icons - Arranged in curved pattern */}
+      {/* Left side curve - top to bottom */}
       <motion.div
-        className="absolute top-1/4 left-[10%] hidden lg:block"
-        animate={{ y: [-10, 10, -10], rotate: [0, 5, 0] }}
+        className="absolute top-[18%] left-[6%] hidden lg:block"
+        animate={{ y: [-8, 8, -8], rotate: [0, 5, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       >
         <div className="p-4 glass rounded-2xl">
@@ -125,9 +126,30 @@ const Hero = () => {
       </motion.div>
 
       <motion.div
-        className="absolute top-1/3 right-[12%] hidden lg:block"
-        animate={{ y: [10, -10, 10], rotate: [0, -5, 0] }}
+        className="absolute top-[38%] left-[4%] hidden lg:block"
+        animate={{ y: [-10, 10, -10], rotate: [0, -3, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <div className="p-4 glass rounded-2xl">
+          <Code2 className="w-8 h-8 text-purple-400" />
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="absolute top-[58%] left-[6%] hidden lg:block"
+        animate={{ y: [8, -8, 8], rotate: [0, 5, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <div className="p-4 glass rounded-2xl">
+          <Bike className="w-8 h-8 text-pink-400" />
+        </div>
+      </motion.div>
+
+      {/* Right side curve - top to bottom */}
+      <motion.div
+        className="absolute top-[18%] right-[6%] hidden lg:block"
+        animate={{ y: [8, -8, 8], rotate: [0, -5, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       >
         <div className="p-4 glass rounded-2xl">
           <Globe className="w-8 h-8 text-accent-blue" />
@@ -135,111 +157,290 @@ const Hero = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-1/3 left-[15%] hidden lg:block"
-        animate={{ y: [-15, 5, -15], rotate: [0, -3, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-[38%] right-[4%] hidden lg:block"
+        animate={{ y: [-8, 8, -8], rotate: [0, 3, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
       >
         <div className="p-4 glass rounded-2xl">
-          <Code2 className="w-8 h-8 text-purple-400" />
+          <ShoppingCart className="w-8 h-8 text-yellow-400" />
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="absolute top-[58%] right-[6%] hidden lg:block"
+        animate={{ y: [10, -10, 10], rotate: [0, -5, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <div className="p-4 glass rounded-2xl">
+          <Truck className="w-8 h-8 text-green-400" />
         </div>
       </motion.div>
 
       {/* Main Content */}
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 glass rounded-full"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            <span className="text-sm text-dark-300">
-              Currently building at{' '}
-              <span className="text-primary-400 font-semibold">Flipkart</span>
-            </span>
-          </motion.div>
+        <div className="max-w-6xl mx-auto">
+          {/* Two Column Layout */}
+          <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
+            
+            {/* Left: Text Content */}
+            <div className="flex-1 text-center order-2 lg:order-1">
+              {/* Badge - Animated & Attractive */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex justify-center mb-6"
+              >
+                <motion.div 
+                  className="relative group cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {/* Animated gradient border */}
+                  <motion.div 
+                    className="absolute -inset-[2px] rounded-full opacity-75 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      background: 'linear-gradient(90deg, #f97316, #fbbf24, #22c55e, #3b82f6, #a855f7, #f97316)',
+                      backgroundSize: '300% 100%',
+                    }}
+                    animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                  />
+                  
+                  {/* Inner content */}
+                  <div className="relative flex items-center gap-3 px-5 py-2.5 bg-dark-950 rounded-full">
+                    {/* Animated status indicator */}
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-green-400 to-emerald-500"></span>
+                    </span>
+                    
+                    {/* Text with gradient on Flipkart */}
+                    <span className="text-sm font-medium">
+                      <span className="text-dark-300">Currently building at </span>
+                      <span className="font-bold bg-gradient-to-r from-primary-400 via-yellow-400 to-primary-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
+                        Flipkart
+                      </span>
+                    </span>
+                    
+                    {/* Animated Orbiting Dots */}
+                    <div className="relative w-6 h-6">
+                      {/* Center glow */}
+                      <motion.div
+                        className="absolute inset-1 rounded-full bg-gradient-to-r from-primary-400 to-yellow-400"
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                      />
+                      {/* Orbiting dot 1 */}
+                      <motion.div
+                        className="absolute w-2 h-2 rounded-full bg-purple-400"
+                        animate={{ 
+                          rotate: 360,
+                        }}
+                        transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                        style={{ 
+                          top: '50%', 
+                          left: '50%',
+                          marginTop: '-4px',
+                          marginLeft: '-4px',
+                          transformOrigin: '4px 12px'
+                        }}
+                      />
+                      {/* Orbiting dot 2 */}
+                      <motion.div
+                        className="absolute w-1.5 h-1.5 rounded-full bg-accent-blue"
+                        animate={{ 
+                          rotate: -360,
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                        style={{ 
+                          top: '50%', 
+                          left: '50%',
+                          marginTop: '-3px',
+                          marginLeft: '-3px',
+                          transformOrigin: '3px -8px'
+                        }}
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
 
-          {/* Main Title */}
-          <div ref={titleRef} className="overflow-hidden mb-4">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display leading-tight">
-              <span className="block text-white">{splitText("Hi, I'm")}</span>
-              <span className="block gradient-text-animated">
-                {splitText('Ranjan Kumar')}
-              </span>
-            </h1>
-          </div>
+              {/* Welcome Text - Colorful */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-xl md:text-2xl mb-3 font-medium"
+              >
+                <span className="text-dark-400">Hey there! </span>
+                <span className="text-purple-400">Welcome </span>
+                <span className="text-dark-400">to </span>
+                <span className="text-primary-400">my </span>
+                <span className="text-accent-blue">world </span>
+                <motion.span 
+                  className="inline-block"
+                  animate={{ rotate: [0, 20, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  👋
+                </motion.span>
+              </motion.div>
 
-          {/* Animated Role */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="h-12 mb-8 flex items-center justify-center"
-          >
-            <TypewriterEffect roles={roles} />
-          </motion.div>
+              {/* Main Title */}
+              <div ref={titleRef} className="overflow-hidden mb-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight">
+                  <span className="block text-white">{splitText("I'm")}</span>
+                  <span className="block gradient-text-animated">
+                    {splitText('Ranjan Kumar')}
+                  </span>
+                </h1>
+              </div>
 
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            className="text-lg md:text-xl text-dark-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
+              {/* Animated Role */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2 }}
+                className="h-10 mb-6 flex items-center justify-center"
+              >
+                <TypewriterEffect roles={roles} />
+              </motion.div>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 0.5 }}
+                className="text-base md:text-lg text-dark-400 max-w-xl mx-auto mb-8 leading-relaxed"
+              >
             Building scalable <span className="text-primary-400">React Native</span> &{' '}
             <span className="text-accent-blue">TypeScript</span> features for{' '}
-            <span className="text-white font-medium">180M+ MAU</span> at Flipkart.
+            <span className="text-white font-medium">180M+ MAU</span>. 
             Shipped <span className="text-purple-400">Inline Recs</span>,{' '}
             <span className="text-green-400">Variant Selector</span>,{' '}
             <span className="text-pink-400">Buy Again</span> &{' '}
-            <span className="text-yellow-400">Membership Programs</span>.
-          </motion.p>
+            <span className="text-yellow-400">Flipkart Membership</span>.
+              </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8, duration: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <motion.a
-              href="#projects"
-              className="btn-primary group flex items-center gap-2"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Sparkles className="w-5 h-5" />
-              View My Work
-              <motion.span
-                className="inline-block"
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.8, duration: 0.5 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
-                →
-              </motion.span>
-            </motion.a>
-            
-            <motion.a
-              href="#contact"
-              className="btn-secondary"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+                <motion.a
+                  href="#projects"
+                  className="btn-primary group flex items-center gap-2"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Sparkles className="w-5 h-5" />
+                  View My Work
+                  <motion.span
+                    className="inline-block"
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.span>
+                </motion.a>
+                
+                <motion.a
+                  href="#contact"
+                  className="btn-secondary"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Get in Touch
+                </motion.a>
+              </motion.div>
+            </div>
+
+            {/* Right: Profile Image */}
+            <motion.div
+              className="flex-shrink-0 order-1 lg:order-2"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
             >
-              Get in Touch
-            </motion.a>
-          </motion.div>
+              <div className="relative">
+                {/* Glowing Ring */}
+                <motion.div
+                  className="absolute -inset-4 rounded-full opacity-50"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316, #a855f7, #3b82f6)',
+                  }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+                />
+                
+                {/* Profile Image Container */}
+                <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full overflow-hidden border-4 border-dark-800 bg-dark-900">
+                  <img
+                    src="/hero-profile.png"
+                    alt="Ranjan Kumar"
+                    className="w-full h-full object-cover scale-[1.2]"
+                    style={{ objectPosition: '50% 75%' }}
+                  />
+                </div>
+
+                {/* Floating Badge - Decorated */}
+                <motion.div
+                  className="absolute -bottom-2 -right-2 md:bottom-4 md:right-0"
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <div className="relative group">
+                    {/* Animated glow behind */}
+                    <motion.div
+                      className="absolute -inset-1 rounded-2xl opacity-70 blur-sm"
+                      style={{
+                        background: 'linear-gradient(135deg, #f97316, #fbbf24, #a855f7)',
+                      }}
+                      animate={{ opacity: [0.5, 0.8, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    
+                    {/* Badge content */}
+                    <div className="relative flex items-center gap-2 px-4 py-2.5 bg-dark-900/95 backdrop-blur-xl rounded-2xl border border-white/10">
+                      {/* Flipkart yellow icon */}
+                      <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-yellow-400 to-primary-400 flex items-center justify-center">
+                        <span className="text-xs font-bold text-dark-900">F</span>
+                      </div>
+                      
+                      {/* Text */}
+                      <div className="flex flex-col">
+                        <span className="text-xs text-dark-400 leading-tight">Working as</span>
+                        <span className="text-sm font-semibold bg-gradient-to-r from-white to-dark-300 bg-clip-text text-transparent leading-tight">
+                          SDE @ Flipkart
+                        </span>
+                      </div>
+                      
+                      {/* Verified badge */}
+                      <motion.div
+                        className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
 
           {/* Stats - Flipkart focused */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.2, duration: 0.6 }}
-            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12"
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12"
           >
             {[
               { value: '180M+', label: 'Monthly Users' },
@@ -254,10 +455,10 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.4 + index * 0.1 }}
               >
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">
+                <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-dark-500">{stat.label}</div>
+                <div className="text-xs md:text-sm text-dark-500">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

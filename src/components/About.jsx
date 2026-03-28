@@ -94,7 +94,7 @@ const About = () => {
                 <div className="card p-4 md:p-6">
                   {/* Photo Container */}
                   <div className="relative mb-6 rounded-2xl overflow-hidden bg-dark-950">
-                    <div className="w-full h-80 overflow-hidden">
+                    <div className="w-full h-64 sm:h-72 md:h-80 overflow-hidden">
                       <img 
                         src="/profile.png" 
                         alt="Ranjan Kumar"

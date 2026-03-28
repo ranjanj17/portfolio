@@ -177,7 +177,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-80 glass border-l border-white/10 p-8"
+              className="absolute right-0 top-0 bottom-0 w-full max-w-80 glass border-l border-white/10 p-6 sm:p-8"
             >
               <div className="flex flex-col h-full">
                 {/* Close Button */}

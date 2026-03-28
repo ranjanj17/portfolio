@@ -191,7 +191,7 @@ const Projects = () => {
                     onClick={() => setSelectedProject(project)}
                   >
                     {/* Image */}
-                    <div className="relative h-44 overflow-hidden">
+                    <div className="relative h-36 sm:h-40 md:h-44 overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}

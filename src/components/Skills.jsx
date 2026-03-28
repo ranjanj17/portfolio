@@ -23,8 +23,11 @@ const skillCategories = [
       { name: 'JavaScript', level: 92, icon: '🟨' },
       { name: 'TypeScript', level: 90, icon: '🔷' },
       { name: 'C++', level: 88, icon: '⚡' },
+      { name: 'C', level: 85, icon: '©️' },
       { name: 'Python', level: 85, icon: '🐍' },
       { name: 'Java', level: 80, icon: '☕' },
+      { name: 'SQL', level: 85, icon: '🗃️' },
+      { name: 'R', level: 70, icon: '📊' },
     ],
   },
   {
@@ -66,8 +69,11 @@ const skillCategories = [
       { name: 'Git & GitHub', level: 92, icon: '🐙' },
       { name: 'Android Studio', level: 88, icon: '🤖' },
       { name: 'XCode', level: 85, icon: '🍎' },
-      { name: 'New Relic', level: 82, icon: '📊' },
+      { name: 'Cursor', level: 90, icon: '⚡' },
+      { name: 'VS Code', level: 92, icon: '💻' },
       { name: 'Postman', level: 88, icon: '📬' },
+      { name: 'New Relic', level: 82, icon: '📊' },
+      { name: 'Charles/Proxyman', level: 80, icon: '🔍' },
     ],
   },
   {
@@ -171,8 +177,8 @@ const Skills = () => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <category.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    <span className="hidden xs:inline sm:inline">{category.name}</span>
-                    <span className="xs:hidden sm:hidden">{category.name.split(' ')[0]}</span>
+                    <span className="hidden sm:inline">{category.name}</span>
+                    <span className="sm:hidden">{category.name.split(' ')[0]}</span>
                   </motion.button>
                 )
               })}
