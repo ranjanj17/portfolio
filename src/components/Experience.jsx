@@ -15,7 +15,7 @@ const experiences = [
   {
     id: 1,
     company: 'Flipkart',
-    logo: 'https://img.icons8.com/color/96/flipkart.png',
+    logo: 'https://static-assets-web.flixcart.com/fk-sp-static/images/favicon_offcanvas.png',
     isImage: true,
     role: 'Software Development Engineer',
     location: 'Bangalore, India',

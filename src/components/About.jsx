@@ -96,7 +96,7 @@ const About = () => {
                   <div className="relative mb-6 rounded-2xl overflow-hidden bg-dark-950">
                     <div className="w-full h-64 sm:h-72 md:h-80 overflow-hidden">
                       <img 
-                        src={`${import.meta.env.BASE_URL}hero-profile.png`} 
+                        src={`${import.meta.env.BASE_URL}profile.png`} 
                         alt="Ranjan Kumar"
                         className="w-[105%] h-full object-cover object-top border-0 -ml-[2.5%]"
                         style={{ background: '#0a0a0f' }}
