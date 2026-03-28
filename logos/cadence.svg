@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Cadence Red "C" Logo -->
+  <path d="M50 10 
+           A40 40 0 1 0 50 90 
+           A40 40 0 0 1 50 25
+           L50 25
+           A25 25 0 1 0 50 75
+           A25 25 0 0 1 50 30
+           L85 30
+           L85 15
+           L50 15
+           Z" 
+        fill="#ED1C24"/>
+  
+  <!-- Simplified Cadence C shape -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#ED1C24" stroke-width="15"/>
+  <rect x="50" y="20" width="40" height="60" fill="#1a1a2e"/>
+  
+  <!-- Inner detail -->
+  <circle cx="50" cy="50" r="18" fill="#1a1a2e"/>
+</svg>
