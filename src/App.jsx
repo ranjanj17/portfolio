@@ -8,7 +8,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Achievements from './components/Achievements'
 import Certifications from './components/Certifications'
-import Testimonials from './components/Testimonials'
+// import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
@@ -58,7 +58,7 @@ function App() {
               <Projects />
               <Achievements />
               <Certifications />
-              <Testimonials />
+              {/* <Testimonials /> */}
               <Contact />
             </main>
             <Footer />

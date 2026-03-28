@@ -76,7 +76,7 @@ const Navbar = () => {
               <span className="text-xl font-mono">
                 <span className="text-dark-500 group-hover:text-dark-400 transition-colors">&lt;</span>
                 <span className="gradient-text-animated font-bold">Ranjan</span>
-                <span className="text-dark-500 group-hover:text-dark-400 transition-colors"> /&gt;</span>
+                <span className="text-dark-500 group-hover:text-dark-400 transition-colors">/&gt;</span>
               </span>
             </motion.a>
 
@@ -129,7 +129,9 @@ const Navbar = () => {
 
               {/* Resume Button */}
               <motion.a
-                href="/resume.pdf"
+                href="/RanjanKumar_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 download
                 className="btn-primary flex items-center gap-2 !py-2.5 !px-5 text-sm"
                 whileHover={{ scale: 1.02 }}
@@ -237,7 +239,9 @@ const Navbar = () => {
 
                   {/* Resume Button */}
                   <motion.a
-                    href="/resume.pdf"
+                    href="/RanjanKumar_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                     download
                     className="btn-primary flex items-center justify-center gap-2 mt-6 w-full"
                     whileTap={{ scale: 0.98 }}

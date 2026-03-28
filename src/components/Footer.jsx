@@ -18,7 +18,7 @@ const footerLinks = [
       { name: 'LeetCode', href: 'https://leetcode.com/u/ranjank_nitj/' },
       { name: 'GeeksforGeeks', href: 'https://www.geeksforgeeks.org/user/ranjank/' },
       { name: 'HackerRank', href: 'https://www.hackerrank.com/ranjank' },
-      { name: 'Resume', href: '/resume.pdf' },
+      { name: 'Resume', href: '/RanjanKumar_Resume.pdf', external: true },
     ],
   },
 ]
@@ -50,7 +50,7 @@ const Footer = () => {
                 <span className="text-xl sm:text-2xl font-mono">
                   <span className="text-dark-500">&lt;</span>
                   <span className="gradient-text-animated font-bold">Ranjan</span>
-                  <span className="text-dark-500"> /&gt;</span>
+                  <span className="text-dark-500">/&gt;</span>
                 </span>
               </motion.a>
               <p className="text-dark-400 leading-relaxed mb-4 sm:mb-6 max-w-md text-sm sm:text-base">
@@ -86,8 +86,8 @@ const Footer = () => {
                     <li key={link.name}>
                       <a
                         href={link.href}
-                        target={link.href.startsWith('http') ? '_blank' : undefined}
-                        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        target={link.href.startsWith('http') || link.external ? '_blank' : undefined}
+                        rel={link.href.startsWith('http') || link.external ? 'noopener noreferrer' : undefined}
                         className="text-dark-400 hover:text-primary-400 transition-colors text-xs sm:text-sm"
                       >
                         {link.name}

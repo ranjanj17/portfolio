@@ -15,7 +15,8 @@ const experiences = [
   {
     id: 1,
     company: 'Flipkart',
-    logo: '🛒',
+    logo: '/logos/flipkart.svg',
+    isImage: true,
     role: 'Software Development Engineer',
     location: 'Bangalore, India',
     period: 'Aug 2024 - Present',
@@ -35,7 +36,8 @@ const experiences = [
   {
     id: 2,
     company: 'Cadence Design Systems',
-    logo: '⚡',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Cadence_Logo_2019.png',
+    isImage: true,
     role: 'Software Engineering Intern, EDA',
     location: 'Noida, India',
     period: 'Jan 2024 - June 2024',
@@ -54,7 +56,8 @@ const experiences = [
   {
     id: 3,
     company: 'ISRO',
-    logo: '🚀',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Indian_Space_Research_Organisation_Logo.svg/200px-Indian_Space_Research_Organisation_Logo.svg.png',
+    isImage: true,
     role: 'Machine Learning Intern',
     location: 'India',
     period: 'Jun 2023 - Jul 2023',
@@ -201,8 +204,20 @@ const Experience = () => {
                       {/* Header */}
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4 pr-16 sm:pr-0">
                         <div className="flex items-center gap-3 sm:gap-4">
-                          <div className="w-10 h-10 sm:w-14 sm:h-14 bg-white/5 rounded-xl flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">
-                            {exp.logo}
+                          <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center text-xl sm:text-2xl flex-shrink-0 overflow-hidden ${exp.isImage ? 'bg-white p-2' : 'bg-white/10 p-1.5'}`}>
+                            {exp.isImage ? (
+                              <img 
+                                src={exp.logo} 
+                                alt={`${exp.company} logo`}
+                                className="w-full h-full object-contain"
+                                onError={(e) => {
+                                  e.target.style.display = 'none'
+                                  e.target.parentElement.innerHTML = '🏢'
+                                }}
+                              />
+                            ) : (
+                              exp.logo
+                            )}
                           </div>
                           <div className="min-w-0">
                             <h3 className="text-lg sm:text-xl font-bold text-white truncate">{exp.company}</h3>
@@ -215,7 +230,18 @@ const Experience = () => {
                           </div>
                         </div>
                         {!exp.current && (
-                          <span className="hidden sm:inline-block px-3 py-1 text-xs font-medium bg-white/5 rounded-full text-dark-400 flex-shrink-0">
+                          <span 
+                            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full flex-shrink-0 border"
+                            style={{ 
+                              backgroundColor: `${colorMap[exp.color]}15`,
+                              borderColor: `${colorMap[exp.color]}40`,
+                              color: colorMap[exp.color]
+                            }}
+                          >
+                            <span 
+                              className="w-1.5 h-1.5 rounded-full"
+                              style={{ backgroundColor: colorMap[exp.color] }}
+                            />
                             {exp.type}
                           </span>
                         )}
@@ -279,8 +305,9 @@ const Experience = () => {
           >
             <p className="text-dark-400 mb-4">Want to know more about my experience?</p>
             <motion.a
-              href="/resume.pdf"
-              download
+              href="/RanjanKumar_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary inline-flex items-center gap-2"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
