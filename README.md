@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React, Vite, and Tailwind CSS.
 
 ## Live Demo
 
-🔗 [View Portfolio](https://ranjankumar.vercel.app)
+🔗 [View Portfolio](https://ranjankumar-portfolio.vercel.app/)
 
 ## Features
 
